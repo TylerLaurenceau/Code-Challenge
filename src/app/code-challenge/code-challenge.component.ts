@@ -64,25 +64,24 @@ export class CodeChallengeComponent implements OnInit {
     this.calcMode();
   }
 
-  topOccurs = 0;
-  occurs = 0;
-  mode=0;
-  holdSpot = 0;
+  maxCount = 0;
+  count = 0;
+  mode = 0;
 
   calcMode() {
     for (var i = 0; i < this.numbers.length; i++) {
-        // console.log(this.numbers[i]);
-        if( this.numbers[i] === this.numbers[i+1] ){
-          this.occurs = this.occurs + 1;
-        }
-        if(this.occurs > this.topOccurs){
-          this.mode = this.numbers[i];
-          this.topOccurs = this.occurs;
-          this.occurs = 0;
+      this.count = 0;
+      for (var j = 0; j < this.numbers.length; j++){
+        if(this.numbers[j] == this.numbers[i]){
+          this.count++;
         }
       }
-    console.log(this.mode);
-    // this.numbers=[];
+      if (this.count > this.maxCount) {
+        this.maxCount = this.count;
+        this.mode = this.numbers[i];
+      }
+    }
+    console.log(this.mode)
   }
 
 
@@ -92,6 +91,18 @@ export class CodeChallengeComponent implements OnInit {
 
 
 
+  //       if( this.numbers[i] === this.numbers[i+1] ){
+  //         this.count++;
+  //         console.log(this.count)
+  //       }
+  //       if(this.count > this.topCount){
+  //         this.mode = this.numbers[i];
+  //         this.topCount = this.count;
+  //         this.count = 0;
+  //       }
+  //     }
+  //   console.log(this.mode);
+  // }
 
 
   constructor() { }
