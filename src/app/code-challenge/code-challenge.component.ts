@@ -16,35 +16,36 @@ export class CodeChallengeComponent implements OnInit {
   fixedMean = 0;
   mode = 0;
 
-  titles = ["Code Challenge", "Tyler Laurenceau"]
+  titles = [". Code Challenge .", ". Tyler Laurenceau ."]
   titleTracker = 0;
   currentTitle = this.titles[this.titleTracker];
 
-  nextTitle(){
+  nextTitle() {
     this.titleTracker = this.titleTracker + 1;
     this.currentTitle = this.titles[this.titleTracker]
-    console.log(this.titleTracker)
-    if(this.titleTracker > 1){
+    if (this.titleTracker > 1) {
       this.titleTracker = 0;
       this.currentTitle = this.titles[this.titleTracker]
     }
-    setTimeout(()=>{this.nextTitle()},5000);
+    setTimeout(() => { this.nextTitle() }, 5000);
   }
 
-  correctSort(a , b){
+  correctSort(a, b) {
     return a - b;
   }
 
   submit($event) {
-    if(isNaN(Number($event.target.value)) === false){
-    (this.numbers.push(Number($event.target.value)));
-    this.numbers.sort(this.correctSort)
-    $event.target.value = null;
+    if (isNaN(Number($event.target.value)) === false) {
+      if($event.target.value != 0){
+      (this.numbers.push(Number($event.target.value)));
+      this.numbers.sort(this.correctSort)
+      $event.target.value = null;
+    }
   }
-  else{
-    alert("That's not a number bro...")
+    else {
+      alert("That's not a number bro...")
+    }
   }
-}
 
   clear() {
     this.total = 0;
@@ -57,20 +58,26 @@ export class CodeChallengeComponent implements OnInit {
   }
 
   calcMax() {
-    for (var i = 0; i < this.numbers.length; i++) {
-      if (this.numbers[i] > this.max) {
-        this.max = this.numbers[i]
+    if (this.numbers.length !> 0){
+      for (var i = 0; i < this.numbers.length; i++) {
+        if (this.numbers[i] > this.max) {
+          this.max = this.numbers[i]
+        }
       }
+      // console.log("The max is: " + this.max)
+      this.calcMin();
+      this.total = 0;
     }
-    // console.log("The max is: " + this.max)
-    this.calcMin();
+  else{
+      alert("Enter some numbers and TRY AGAIN!");
+    }
   }
 
-  calcMin(){
+  calcMin() {
     this.min = Math.min.apply(Math, this.numbers)
     // console.log("the min is:" + this.min)
     this.calcMean();
-    }
+  }
 
   calcMean() {
     for (var i = 0; i < this.numbers.length; i++) {
@@ -88,8 +95,8 @@ export class CodeChallengeComponent implements OnInit {
   calcMode() {
     for (var i = 0; i < this.numbers.length; i++) {
       this.count = 0;
-      for (var j = 0; j < this.numbers.length; j++){
-        if(this.numbers[j] == this.numbers[i]){
+      for (var j = 0; j < this.numbers.length; j++) {
+        if (this.numbers[j] == this.numbers[i]) {
           this.count++;
         }
       }

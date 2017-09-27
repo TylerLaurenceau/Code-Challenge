@@ -1,179 +1,292 @@
 /* You can add global styles to this file, and also import other style files */
-  *{
-  button:focus {outline:0;}
 
+* {
+  button:focus {
+    outline: 0;
+  }
   box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   font-family: 'Ubuntu', sans-serif;
 }
 
 html {
-    overflow: scroll;
-    overflow-x: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
-}
-/* optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* just make scrollbar invisible */
 }
 
-input:focus {outline:none;}
+input:focus {
+  outline: none;
+}
 
-body{
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
   margin: 0 !important;
   padding: 0 !important;
   background: #FF5733;
 }
 
-.title{
-  width:100%;
-  height:50px;
-  font-size: 120%;
-  text-align: left;
-  padding-left: 5%;
-  padding-top: 1%;
-  background: #FFC300;
-  color:white;
-  text-shadow: 1px 1px 1px black;
-  box-shadow: 1px 1px 20px darkred;
+.logo {
+  margin-bottom: 0px;
+  font-size: 150%;
+  margin-left: 0px;
+  font-family: 'Lobster', cursive;
+  padding-right: 8%;
 }
+
+.currentTitle {
+  padding-right: 5.5%;
+}
+
+.title {
+  margin-top: 0px;
+  margin-bottom: 7%;
+  width: 60%;
+  height: 50px;
+  font-size: 120%;
+  text-align: right;
+  padding-top: 1%;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  float: left;
+}
+
+.contactsContainer{
+  float:right;
+  margin-right: 3%;
+  margin-top: 4%;
+  width: 22%;
+}
+
+.github{
+  padding-right: 2%;
+  padding-left: 2%;
+  color:white;
+  border-bottom: 2px solid white;
+  margin-right: -1.3%;
+  text-align: center;
+  opacity: .5;
+}
+.github:hover{
+  color:#1f1f1f;
+  opacity: 1;
+  border-bottom:2px solid #1f1f1f;
+}
+
+.portfolio{
+  padding-right: 2%;
+  padding-left: 2%;
+  color:white;
+  border-bottom: 2px solid white;
+  margin-right: -1.3%;
+  text-align: center;
+  opacity: .5;
+}
+.portfolio:hover{
+  color:#FFF747;
+  opacity:1;
+  border-bottom: 2px solid #FFF747;
+}
+
+.linkedin{
+  padding-right: 2%;
+  padding-left: 2%;
+  color:white;
+  border-bottom:2px solid white;
+  text-align: center;
+  opacity: .5;
+}
+.linkedin:hover{
+  color:#4790FF;
+  opacity:1;
+  border-bottom: 2px solid #4790FF;
+}
+
 
 /*Numbers*/
 
-.numbersContainer{
-  color:white;
-  width:60%;
-  height:100px;
+.bar{
+  color:#1f1f1f;
+}
+
+.numbersContainer {
+  color: white;
+  width: 60%;
+  height: 100px;
   margin: auto;
   margin-top: 7%;
   overflow: scroll;
 }
 
-ul{
+ul {
   text-align: center;
-  overflow:auto;
+  overflow: auto;
 }
 
-li{
+li {
   display: inline-block;
   margin-right: 5%;
   font-size: 200%;
   text-shadow: 1px 1px 1px black;
 }
 
+
 /*Numbers*/
+
 
 /*Input Area*/
 
-.inputContainer{
+.inputContainer {
   text-align: center;
   margin-top: 5%;
 }
 
-input{
+input {
   text-align: center;
-  border:1px solid white;
+  border: 1px solid #1f1f1f;
   height: 50px;
   width: 25%;
+  background: #1f1f1f;
+  color: white;
 }
 
-.startOver{
+.startOver {
   height: 50px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
-  background: white;
-  border:17px solid white;
+  background: #1f1f1f;
+  border: 17px solid #1f1f1f;
   margin-right: -.5%;
   color: grey;
   font-size: 70%;
 }
-.startOver:hover{
+
+.startOver:hover {
   color: red;
 }
 
-.calculate{
+.calculate {
   height: 50px;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
-  background: white;
-  border:17px solid white;
+  background: #1f1f1f;
+  border: 17px solid #1f1f1f;
   margin-left: -.5%;
-  color:grey;
-}
-.calculate:hover{
-  color:lightgreen;
+  color: grey;
 }
 
-.prompt{
-  color:white;
+.calculate:hover {
+  color: lightgreen;
+}
+
+.prompt {
+  color: white;
   margin-top: 1%;
   text-shadow: 1px 1px 1px black;
 }
 
+
 /*Input Area*/
+
 
 /*Answer Area*/
 
-.maxNumber{
-  height:250px;
-  width:20%;
+.answer{
+  color:white;
+}
+
+.maxNumber {
+  height: 250px;
+  width: 20%;
   text-align: center;
   font-size: 200%;
   margin-right: 4%;
   margin-top: 3.5%;
   padding-top: 8%;
   background: #37FF86;
-  color:white;
+  color: #1f1f1f;
   border-radius: 5px;
-  text-shadow: 1px 1px 1px black;
-  float:right;
+  text-shadow: 1px 1px 1px #41BB4C;
+  float: right;
 }
 
-.meanNumber{
-  height:250px;
-  width:20%;
+.meanNumber {
+  height: 250px;
+  width: 20%;
   text-align: center;
   font-size: 200%;
   margin-right: 4%;
   margin-top: 3.5%;
   padding-top: 8%;
   background: #37D1FF;
-  color:white;
+  color: #1f1f1f;
   border-radius: 5px;
-  text-shadow: 1px 1px 1px black;
-  float:right;
+  text-shadow: 1px 1px 1px #298FA3;
+  float: right;
 }
 
-.modeNumber{
-  height:250px;
-  width:20%;
+.modeNumber {
+  height: 250px;
+  width: 20%;
   text-align: center;
   font-size: 200%;
   margin-right: 4%;
   margin-top: 3.5%;
   padding-top: 8%;
   background: #FFA0F3;
-  color:white;
+  color: #1f1f1f;
   border-radius: 5px;
-  text-shadow: 1px 1px 1px black;
-  float:right;
+  text-shadow: 1px 1px 1px #BA6BB3;
+  float: right;
 }
 
-.minNumber{
-  height:250px;
-  width:20%;
+.minNumber {
+  height: 250px;
+  width: 20%;
   text-align: center;
   font-size: 200%;
   margin-left: 4%;
   margin-top: 3.5%;
   padding-top: 8%;
-  background: #F8FF5F;
-  color:white;
+  background: #FFC24F;
+  color: #1f1f1f;
   border-radius: 5px;
-  text-shadow: 1px 1px 1px black;
-  float:left;
+  text-shadow: 1px 1px 1px #9A9E1E;
+  float: left;
+}
+
+
+/*Answer Area*/
+
+
+/*Footer Area*/
+
+.footerContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.footer {
+  border-top: 2px solid #1f1f1f;
+  margin: auto;
+  margin-top: .5%;
+  width: 50%;
+}
+
+.portfolioSite {
+  margin-left: 2%;
+  color: white;
 }

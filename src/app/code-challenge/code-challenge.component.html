@@ -1,8 +1,16 @@
-<div class="title" (click) = "nextTitle()">{{currentTitle}}</div>
+<div class = "contentContainer">
+<div class="title" (click) = "nextTitle()"><span class="logo">. . . CC . . .</span> <br/> <span class="currentTitle">{{currentTitle}}</span></div>
+<div class="contactsContainer">
+  <div class="contacts">
+    <span class="github">GitHub<i class="fa fa-github-alt" aria-hidden="true"></i></span>
+    <span class="portfolio">Portfolio<i class="fa fa-address-card" aria-hidden="true"></i></span>
+    <span class="linkedin">LinkedIn<i class="fa fa-linkedin-square" aria-hidden="true"></i></span>
+  </div>
+</div>
 
 <div class="numbersContainer">
 <ul>
-  <li *ngFor="let number of numbers">{{number | number}} </li>
+  <li *ngFor="let number of numbers"><span class="bar">|</span> {{number | number}} <span class="bar">|</span></li>
 </ul>
 </div>
 
@@ -13,7 +21,11 @@
 <button class="calculate" (click) = "calcMax()"><i class="fa fa-bolt" aria-hidden="true"></i></button>
 <div class="prompt"> Hit "ENTER"!</div>
 </div>
-<div class="minNumber">MIN: {{min}}</div>
-<div class="maxNumber">MAX: {{max}}</div>
-<div class="meanNumber">MEAN: {{fixedMean}}</div>
-<div class="modeNumber">MODE: {{mode}}</div>
+<div class="minNumber">MIN: <span class="answer">{{min}}</span></div>
+<div class="maxNumber">MAX: <span class="answer">{{max}}</span></div>
+<div class="meanNumber">MEAN: <span class="answer">{{fixedMean}}</span></div>
+<div class="modeNumber">MODE: <span class="answer">{{mode}}</span></div>
+</div>
+
+<div class="footerContainer">
+</div>
