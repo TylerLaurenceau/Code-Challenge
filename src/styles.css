@@ -81,10 +81,6 @@ input{
   width: 25%;
 }
 
-button:hover{
-  color:#FFC300;
-}
-
 .startOver{
   height: 50px;
   border-bottom-left-radius: 5px;
@@ -93,6 +89,10 @@ button:hover{
   border:17px solid white;
   margin-right: -.5%;
   color: grey;
+  font-size: 70%;
+}
+.startOver:hover{
+  color: red;
 }
 
 .calculate{
@@ -103,6 +103,9 @@ button:hover{
   border:17px solid white;
   margin-left: -.5%;
   color:grey;
+}
+.calculate:hover{
+  color:lightgreen;
 }
 
 .prompt{

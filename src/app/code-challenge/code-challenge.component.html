@@ -7,9 +7,10 @@
 </div>
 
 <div class="inputContainer">
-<button class="startOver" (click) = "clear()">Start Over</button>
+<button class="startOver" (click) = "clear()"><i class="fa fa-refresh" aria-hidden="true"></i>
+</button>
 <input placeholder="Enter a number" (keyup.enter)="submit($event)"/>
-<button class="calculate" (click) = "calcMax()">CALCULATE!</button>
+<button class="calculate" (click) = "calcMax()"><i class="fa fa-bolt" aria-hidden="true"></i></button>
 <div class="prompt"> Hit "ENTER"!</div>
 </div>
 <div class="minNumber">MIN: {{min}}</div>
