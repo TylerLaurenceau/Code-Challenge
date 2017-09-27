@@ -1,11 +1,18 @@
-<ul>
-  <li *ngFor="let number of numbers">{{number}}</li>
-</ul>
+<div class="title" (click) = "nextTitle()">{{currentTitle}}</div>
 
-<input placeholder="Enter a number :)" (keyup.enter)="submit($event)"/>
-<button (click) = "calcMax()">CALCULATE!</button>
-<button (click) = "clear()">Start Over</button>
-<div></div>
-<div class="maxNumber">The Largest Number Is: {{max}}</div>
-<div class="minNumber">The Smallest Number Is: {{min}}</div>
-<div class="meanNumber">The Mean of all of the numbers is: {{mean}}</div>
+<div class="numbersContainer">
+<ul>
+  <li *ngFor="let number of numbers">{{number | number}} </li>
+</ul>
+</div>
+
+<div class="inputContainer">
+<button class="startOver" (click) = "clear()">Start Over</button>
+<input placeholder="Enter a number" (keyup.enter)="submit($event)"/>
+<button class="calculate" (click) = "calcMax()">CALCULATE!</button>
+<div class="prompt"> Hit "ENTER"!</div>
+</div>
+<div class="minNumber">MIN: {{min}}</div>
+<div class="maxNumber">MAX: {{max}}</div>
+<div class="meanNumber">MEAN: {{fixedMean}}</div>
+<div class="modeNumber">MODE: {{mode}}</div>

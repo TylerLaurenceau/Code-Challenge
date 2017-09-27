@@ -7,13 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodeChallengeComponent implements OnInit {
 
-  title = "this is a test";
+  numbers = [];
+
   total = 0;
   max = 0;
   min = 0;
   mean = 0;
-  items = [1, 2, 3];
-  numbers = [];
+  fixedMean = 0;
+  mode = 0;
+
+  titles = ["Code Challenge", "Tyler Laurenceau"]
+  titleTracker = 0;
+  currentTitle = this.titles[this.titleTracker];
+
+  nextTitle(){
+    this.titleTracker = this.titleTracker + 1;
+    this.currentTitle = this.titles[this.titleTracker]
+    console.log(this.titleTracker)
+    if(this.titleTracker > 1){
+      this.titleTracker = 0;
+      this.currentTitle = this.titles[this.titleTracker]
+    }
+    setTimeout(()=>{this.nextTitle()},5000);
+  }
 
   correctSort(a , b){
     return a - b;
@@ -24,7 +40,6 @@ export class CodeChallengeComponent implements OnInit {
     (this.numbers.push(Number($event.target.value)));
     this.numbers.sort(this.correctSort)
     $event.target.value = null;
-    // console.log(this.numbers);
   }
   else{
     alert("That's not a number bro...")
@@ -36,6 +51,8 @@ export class CodeChallengeComponent implements OnInit {
     this.max = 0;
     this.min = 0;
     this.mean = 0;
+    this.fixedMean = 0;
+    this.mode = 0;
     this.numbers = [];
   }
 
@@ -59,14 +76,14 @@ export class CodeChallengeComponent implements OnInit {
     for (var i = 0; i < this.numbers.length; i++) {
       this.total = this.total + this.numbers[i];
     }
-    this.mean = this.total / this.numbers.length
+    this.mean = this.total / this.numbers.length;
+    this.fixedMean = Number(this.mean.toFixed(2))
     // console.log("the mean is: " + this.mean)
     this.calcMode();
   }
 
   maxCount = 0;
   count = 0;
-  mode = 0;
 
   calcMode() {
     for (var i = 0; i < this.numbers.length; i++) {
@@ -81,33 +98,10 @@ export class CodeChallengeComponent implements OnInit {
         this.mode = this.numbers[i];
       }
     }
-    console.log(this.mode)
   }
-
-
-
-
-
-
-
-
-  //       if( this.numbers[i] === this.numbers[i+1] ){
-  //         this.count++;
-  //         console.log(this.count)
-  //       }
-  //       if(this.count > this.topCount){
-  //         this.mode = this.numbers[i];
-  //         this.topCount = this.count;
-  //         this.count = 0;
-  //       }
-  //     }
-  //   console.log(this.mode);
-  // }
-
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
