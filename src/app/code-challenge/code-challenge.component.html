@@ -2,29 +2,29 @@
 <div class="title" (click) = "nextTitle()"><span class="logo">. . . CC . . .</span> <br/> <span class="currentTitle">{{currentTitle}}</span></div>
 <div class="contactsContainer">
   <div class="contacts">
-    <span class="github">GitHub<i class="fa fa-github-alt" aria-hidden="true"></i></span>
-    <span class="portfolio">Portfolio<i class="fa fa-address-card" aria-hidden="true"></i></span>
-    <span class="linkedin">LinkedIn<i class="fa fa-linkedin-square" aria-hidden="true"></i></span>
+    <span class="github"><a href="https://github.com/TylerLaurenceau/Code-Challenge">GitHub</a><i class="fa fa-github-alt" aria-hidden="true"></i></span>
+    <span class="portfolio"><a href="http://tsl.surge.sh/#!/home">Portfolio</a><i class="fa fa-address-card" aria-hidden="true"></i></span>
+    <span class="linkedin"><a href="https://www.linkedin.com/in/tyler-laurenceau-426462117/">LinkedIn</a><i class="fa fa-linkedin-square" aria-hidden="true"></i></span>
   </div>
 </div>
 
 <div class="numbersContainer">
 <ul>
-  <li *ngFor="let number of numbers"><span class="bar">|</span> {{number | number}} <span class="bar">|</span></li>
+  <li *ngFor="let number of numbers" @fade><span class="bar">|</span> {{number | number}} <span class="bar">|</span></li>
 </ul>
 </div>
 
 <div class="inputContainer">
-<button class="startOver" (click) = "clear()"><i class="fa fa-refresh" aria-hidden="true"></i>
+<button class="startOver" title="Click Here to delete the numbers above." (click) = "clear()"><i class="fa fa-refresh" aria-hidden="true"></i>
 </button>
 <input placeholder="Enter a number" (keyup.enter)="submit($event)"/>
-<button class="calculate" (click) = "calcMax()"><i class="fa fa-bolt" aria-hidden="true"></i></button>
+<button class="calculate" title="Click Here to calculate the numbers above." (click) = "calcMax()"><i class="fa fa-bolt" aria-hidden="true"></i></button>
 <div class="prompt"> Hit "ENTER"!</div>
 </div>
-<div class="minNumber">MIN: <span class="answer">{{min}}</span></div>
-<div class="maxNumber">MAX: <span class="answer">{{max}}</span></div>
-<div class="meanNumber">MEAN: <span class="answer">{{fixedMean}}</span></div>
-<div class="modeNumber">MODE: <span class="answer">{{mode}}</span></div>
+<div class="minNumber" @fade>MIN: <span class="answer">{{min}}</span></div>
+<div class="maxNumber" @fade>MAX: <span class="answer">{{max}}</span></div>
+<div class="meanNumber" @fade>MEAN: <span class="answer">{{fixedMean}}</span></div>
+<div class="modeNumber" @fade>MODE: <span class="answer">{{mode}}</span></div>
 </div>
 
 <div class="footerContainer">

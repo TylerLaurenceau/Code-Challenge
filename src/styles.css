@@ -26,6 +26,10 @@ input:focus {
   outline: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -34,6 +38,10 @@ a {
 body {
   margin: 0 !important;
   padding: 0 !important;
+  -webkit-user-select: none;
+        -moz-user-select: -moz-none;
+        -ms-user-select: none;
+        user-select: none;
   background: #FF5733;
 }
 
@@ -118,6 +126,7 @@ body {
 
 .bar{
   color:#1f1f1f;
+  text-shadow: 1px 1px 1px #FF5733;
 }
 
 .numbersContainer {
@@ -194,6 +203,7 @@ input {
   color: white;
   margin-top: 1%;
   text-shadow: 1px 1px 1px black;
+  opacity: .6;
 }
 
 

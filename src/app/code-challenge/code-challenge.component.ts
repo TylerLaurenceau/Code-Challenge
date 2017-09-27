@@ -1,9 +1,20 @@
+import { trigger, state, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-code-challenge',
   templateUrl: './code-challenge.component.html',
-  styleUrls: ['./code-challenge.component.css']
+  styleUrls: ['./code-challenge.component.css'],
+  animations:[
+    trigger('fade', [
+
+      state('void', style({opacity: 0})),
+      transition(':enter, :leave', [
+        animate(500)
+      ]),
+    ])
+
+  ]
 })
 export class CodeChallengeComponent implements OnInit {
 
@@ -102,7 +113,12 @@ export class CodeChallengeComponent implements OnInit {
       }
       if (this.count > this.maxCount) {
         this.maxCount = this.count;
+        if(this.maxCount > 1){
         this.mode = this.numbers[i];
+      }
+      else{
+        this.mode = Number(NaN);
+      }
       }
     }
   }
