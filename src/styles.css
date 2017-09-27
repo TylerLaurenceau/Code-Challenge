@@ -228,7 +228,7 @@ input {
   color: #1f1f1f;
   border-radius: 5px;
   text-shadow: 1px 1px 1px #41BB4C;
-  float: right;
+  float: left;
 }
 
 .meanNumber {
@@ -243,7 +243,7 @@ input {
   color: #1f1f1f;
   border-radius: 5px;
   text-shadow: 1px 1px 1px #298FA3;
-  float: right;
+  float: left;
 }
 
 .modeNumber {
@@ -258,7 +258,7 @@ input {
   color: #1f1f1f;
   border-radius: 5px;
   text-shadow: 1px 1px 1px #BA6BB3;
-  float: right;
+  float: left;
 }
 
 .minNumber {
@@ -267,6 +267,7 @@ input {
   text-align: center;
   font-size: 200%;
   margin-left: 4%;
+  margin-right: 4%;
   margin-top: 3.5%;
   padding-top: 8%;
   background: #FFC24F;

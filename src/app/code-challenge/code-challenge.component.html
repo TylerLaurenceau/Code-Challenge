@@ -18,15 +18,15 @@
 <button class="startOver" title="Click Here to delete the numbers above." (click) = "clear()"><i class="fa fa-refresh" aria-hidden="true"></i>
 </button>
 <input placeholder="Enter a number" (keyup.enter)="submit($event)"/>
-<button class="calculate" title="Click Here to calculate the numbers above." (click) = "calcMax()"><i class="fa fa-bolt" aria-hidden="true"></i></button>
+<button class="calculate" title="Click Here to calculate the numbers above." (click) = "calcMin()"><i class="fa fa-bolt" aria-hidden="true"></i></button>
 <div class="prompt"> Hit "ENTER"!</div>
 </div>
 
 <div class="answerContainer">
 <div class="minNumber" @fade *ngIf=min>MIN: <span class="answer">{{min}}</span></div>
-<div class="maxNumber" @fade *ngIf=max>MAX: <span class="answer">{{max}}</span></div>
-<div class="meanNumber" @fade *ngIf=mean>MEAN: <span class="answer">{{fixedMean}}</span></div>
 <div class="modeNumber" @fade *ngIf=mode>MODE: <span class="answer">{{mode}}</span></div>
+<div class="meanNumber" @fade *ngIf=mean>MEAN: <span class="answer">{{fixedMean}}</span></div>
+<div class="maxNumber" @fade *ngIf=max>MAX: <span class="answer">{{max}}</span></div>
 </div>
 
 <div class="footerContainer">

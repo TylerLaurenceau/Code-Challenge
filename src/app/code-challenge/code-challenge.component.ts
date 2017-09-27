@@ -26,6 +26,8 @@ export class CodeChallengeComponent implements OnInit {
   mean = 0;
   fixedMean = 0;
   mode = 0;
+  maxCount = 0;
+  count = 0;
 
   titles = [". Code Challenge .", ". Tyler Laurenceau ."]
   titleTracker = 0;
@@ -54,7 +56,7 @@ export class CodeChallengeComponent implements OnInit {
     }
   }
     else {
-      alert("That's not a number bro...")
+      alert("Please enter a number or decimal EX: 10 or .10 ")
     }
   }
 
@@ -66,44 +68,45 @@ export class CodeChallengeComponent implements OnInit {
     this.fixedMean = 0;
     this.mode = 0;
     this.numbers = [];
+    this.count = 0;
+    this.maxCount = 0;
   }
 
   calcMax() {
-    if (this.numbers.length !> 0){
       for (var i = 0; i < this.numbers.length; i++) {
         if (this.numbers[i] > this.max) {
           this.max = this.numbers[i]
         }
-      }
       // console.log("The max is: " + this.max)
-      this.calcMin();
       this.total = 0;
     }
-  else{
-      alert("Enter some numbers and TRY AGAIN!");
-    }
   }
+
 
   calcMin() {
+    if (this.numbers.length !> 0){
     this.min = Math.min.apply(Math, this.numbers)
     // console.log("the min is:" + this.min)
-    this.calcMean();
+    setTimeout(() => { this.calcMode() }, 700)
   }
+  else{
+    alert("Enter some numbers and TRY AGAIN!");
+  }
+}
 
   calcMean() {
+    this.mean = 0;
     for (var i = 0; i < this.numbers.length; i++) {
       this.total = this.total + this.numbers[i];
     }
     this.mean = this.total / this.numbers.length;
     this.fixedMean = Number(this.mean.toFixed(2))
     // console.log("the mean is: " + this.mean)
-    this.calcMode();
+    setTimeout(() => { this.calcMax() }, 700)
   }
 
-  maxCount = 0;
-  count = 0;
-
   calcMode() {
+    console.log("hello")
     for (var i = 0; i < this.numbers.length; i++) {
       this.count = 0;
       for (var j = 0; j < this.numbers.length; j++) {
@@ -121,6 +124,7 @@ export class CodeChallengeComponent implements OnInit {
       }
       }
     }
+    setTimeout(() => { this.calcMean() }, 700)
   }
 
   constructor() { }
