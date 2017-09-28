@@ -10,7 +10,7 @@
 
 <div class="numbersContainer">
 <ul>
-  <li *ngFor="let number of numbers" @fade><span class="bar">|</span> {{number | number}} <span class="bar">|</span></li>
+  <li *ngFor="let number of userInput" @fade><span class="bar">|</span> {{number | number}} <span class="bar">|</span></li>
 </ul>
 </div>
 
@@ -27,7 +27,4 @@
 <div class="modeNumber" @fade *ngIf=mode>MODE: <span class="answer">{{mode}}</span></div>
 <div class="meanNumber" @fade *ngIf=mean>MEAN: <span class="answer">{{fixedMean}}</span></div>
 <div class="maxNumber" @fade *ngIf=max>MAX: <span class="answer">{{max}}</span></div>
-</div>
-
-<div class="footerContainer">
 </div>

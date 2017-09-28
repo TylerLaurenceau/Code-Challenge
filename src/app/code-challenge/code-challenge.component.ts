@@ -1,5 +1,6 @@
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { MathLib } from './mathLib';
 
 @Component({
   selector: 'app-code-challenge',
@@ -18,16 +19,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodeChallengeComponent implements OnInit {
 
-  numbers = [];
+  userInput: number[] = [];
 
-  total = 0;
-  max = 0;
-  min = 0;
-  mean = 0;
-  fixedMean = 0;
-  mode = 0;
-  maxCount = 0;
-  count = 0;
+  total: number = 0;
+  max: number = 0;
+  min: number = 0;
+  mean: number = 0;
+  fixedMean: number = 0;
+  mode: number = 0;
+  maxCount: number = 0;
+  count: number = 0;
+
+  constructor(private mathLib:MathLib) { }
 
   titles = [". Code Challenge .", ". Tyler Laurenceau ."]
   titleTracker = 0;
@@ -50,8 +53,8 @@ export class CodeChallengeComponent implements OnInit {
   submit($event) {
     if (isNaN(Number($event.target.value)) === false) {
       if($event.target.value != 0){
-      (this.numbers.push(Number($event.target.value)));
-      this.numbers.sort(this.correctSort)
+      (this.userInput.push(Number($event.target.value)));
+      this.userInput.sort(this.correctSort)
       $event.target.value = null;
     }
   }
@@ -67,26 +70,24 @@ export class CodeChallengeComponent implements OnInit {
     this.mean = 0;
     this.fixedMean = 0;
     this.mode = 0;
-    this.numbers = [];
+    this.userInput = [];
     this.count = 0;
     this.maxCount = 0;
   }
 
   calcMax() {
-      for (var i = 0; i < this.numbers.length; i++) {
-        if (this.numbers[i] > this.max) {
-          this.max = this.numbers[i]
+      for (var i = 0; i < this.userInput.length; i++) {
+        if (this.userInput[i] > this.max) {
+          this.max = this.userInput[i]
         }
-      // console.log("The max is: " + this.max)
       this.total = 0;
     }
   }
 
 
   calcMin() {
-    if (this.numbers.length !> 0){
-    this.min = Math.min.apply(Math, this.numbers)
-    // console.log("the min is:" + this.min)
+    this.min = this.mathLib.calcMin(this.userInput);
+    if( this.min !== NaN ){
     setTimeout(() => { this.calcMode() }, 700)
   }
   else{
@@ -96,28 +97,26 @@ export class CodeChallengeComponent implements OnInit {
 
   calcMean() {
     this.mean = 0;
-    for (var i = 0; i < this.numbers.length; i++) {
-      this.total = this.total + this.numbers[i];
+    for (var i = 0; i < this.userInput.length; i++) {
+      this.total = this.total + this.userInput[i];
     }
-    this.mean = this.total / this.numbers.length;
+    this.mean = this.total / this.userInput.length;
     this.fixedMean = Number(this.mean.toFixed(2))
-    // console.log("the mean is: " + this.mean)
     setTimeout(() => { this.calcMax() }, 700)
   }
 
   calcMode() {
-    console.log("hello")
-    for (var i = 0; i < this.numbers.length; i++) {
+    for (var i = 0; i < this.userInput.length; i++) {
       this.count = 0;
-      for (var j = 0; j < this.numbers.length; j++) {
-        if (this.numbers[j] == this.numbers[i]) {
+      for (var j = 0; j < this.userInput.length; j++) {
+        if (this.userInput[j] == this.userInput[i]) {
           this.count++;
         }
       }
       if (this.count > this.maxCount) {
         this.maxCount = this.count;
         if(this.maxCount > 1){
-        this.mode = this.numbers[i];
+        this.mode = this.userInput[i];
       }
       else{
         this.mode = Number(NaN);
@@ -126,9 +125,6 @@ export class CodeChallengeComponent implements OnInit {
     }
     setTimeout(() => { this.calcMean() }, 700)
   }
-
-  constructor() { }
-
   ngOnInit() {
   }
 }
