@@ -12,10 +12,11 @@ export class MathLib {
   }
 
   calcMode(input: number[]): number {
+    var count = 0;
+    var maxCount = 0;
+    var mode = 0;
     for (var i = 0; i < input.length; i++) {
-      let count = 0;
-      let maxCount = 0;
-      let mode = 0;
+      count = 0;
       for (var j = 0; j < input.length; j++) {
         if (input[j] == input[i]) {
           count++;
@@ -23,15 +24,37 @@ export class MathLib {
       }
       if (count > maxCount) {
         maxCount = count;
-        if(maxCount > 1){
-        mode = input[i]
-        return mode;
-      }
-      else{
-        return NaN;
-      }
+        if (maxCount > 1) {
+          mode = input[i]
+        }
       }
     }
+    return mode;
+  }
+
+  calcMean(input: number[]) {
+    var mean = 0;
+    var total = 0;
+    var fixedMean = 0;
+    for (var i = 0; i < input.length; i++) {
+      total = total + input[i];
+    }
+    mean = total / input.length;
+    fixedMean = Number(mean.toFixed(2))
+    return fixedMean;
+  }
+
+
+  calcMax(input: number[]) {
+    var max = 0;
+    var total = 0;
+      for (var i = 0; i < input.length; i++) {
+        if (input[i] > max) {
+          max = input[i]
+        }
+       total = 0;
+    }
+    return max;
   }
 
 };
